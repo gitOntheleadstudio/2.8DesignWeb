@@ -1,0 +1,48 @@
+@use '../../../styles/' as *;
+
+.counter {
+    &.box {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); //modificar por el numero de columnas
+        grid-auto-columns: auto;
+        width: 100%;
+
+        @media screen and (max-width: $large) and (orientation: portrait) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &.element {
+        display: flex;
+        justify-content: space-between;
+        min-width: 157px;
+        @media screen and (max-width: $large) {
+            max-width: 50vw;
+        }
+
+        .element-text {
+            .element-name {
+                font-size: .5em;
+                color: rgb(var(--remark_color));
+            }
+
+            .element-number {
+                font-size: 2em;
+
+                @media screen and (max-width: $large) {
+                    font-size: 1em;
+                }
+            }
+
+            .element-description {
+                text-align: center;
+            }
+        }
+        &-chart{
+            margin-left: 10px;
+        }
+    }
+
+}

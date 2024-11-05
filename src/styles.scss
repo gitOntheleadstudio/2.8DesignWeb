@@ -1,0 +1,96 @@
+@use './app/styles' as *;
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+    @include theme-updater();
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font-family;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a[aria-current] {
+    color: var(--focus);
+}
+
+button {
+    width: fit-content;
+    cursor: pointer;
+    font-size: 1.2em;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+
+    &:active {
+        filter: brightness(85%);
+    }
+}
+
+h1 {
+    color: var(--foreground);
+    font-family: $primary-font-family;
+    font-weight: bold;
+    font-size: 3rem;
+    @media (max-width: $large) {
+        font-size: 1.8rem;
+    }
+}
+h2{
+    font-size: 1.8rem;
+    font-family: $primary-font-family;
+    @media (max-width: $large) {
+        font-size: 1.5rem;
+    }
+}
+h3{
+    font-size: 1.5rem;
+    font-family: $primary-font-family;
+    @media (max-width: $large) {
+        font-size: 1rem;
+    }
+}
+h4,
+h5 {
+    color: var(--foreground);
+    font-family: $secondary-font-family;
+    //font-weight: 300;
+}
+
+p {
+    color: var(--foreground);
+    @media (max-width: $large) {
+        font-size: .8rem;
+    }
+}
+
+b {
+    color: var(--focus);
+    filter: brightness(10);
+}
+
+u {
+    color: var(--focus);
+}

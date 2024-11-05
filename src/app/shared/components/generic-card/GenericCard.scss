@@ -1,0 +1,44 @@
+@use "../../../styles" as *;
+
+.genericCard{
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    @include box-shadow-updater(sm, rgb(var(--background_opocite_color)));
+    border-radius: 1em;
+    overflow: hidden;
+    &-header{
+        flex: 1;
+        img{
+            width: 100%;
+        }
+    }
+    &-content{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 5%;
+        @media screen and (max-width: $small) {
+            font-size: .8em;
+        }
+        h2 {
+            font-size: 1em;
+        }
+        p{
+            text-align: center;
+            @media screen and (max-width: $small) {
+                font-size: .7em;
+            }
+        }
+        button{
+            border-radius: 20px;
+            padding: 10px 30px;
+            @media screen and (max-width: $small) {
+                padding: 5px 10px;
+            }
+        }
+    }
+}
