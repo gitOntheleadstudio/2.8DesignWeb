@@ -1,0 +1,92 @@
+.services {
+    position: relative;
+    overflow: hidden;
+
+    .header-bkg {
+        z-index: 1;
+        background-color: black;
+        position: absolute;
+        height: 100vh;
+        width: 125vw;
+        transform: rotate(25deg);
+        left: 30vw;
+        top: -45vh;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 110%;
+            object-fit: cover;
+            filter: saturate(0) brightness(.2);
+            transform: rotate(-25deg);
+        }
+    }
+
+    .header {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 5vh;
+        width: 40vw;
+        text-align: center;
+        padding: 0 5%;
+    }
+}
+
+.slide-box {
+    height: 100vh;
+
+    .service {
+        position: relative;
+        img {
+            min-height: 100vh;
+            object-fit: cover;
+            padding: 0 2px;
+        }
+        .text {
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 40px 0;
+        }
+    }
+}
+
+.sliderServices {
+    width: 100%;
+    height: 100%;
+
+    .slick-arrow {
+        z-index: 11;
+
+        &::before {
+            color: var(--foreground);
+            font-size: 40px; //tamaño de los botones
+        }
+
+        &.slick-prev {
+            left: -45px;
+
+        }
+    }
+
+    .slick-dots {
+        z-index: 11;
+        bottom: 7px;
+
+        .slick-active {
+            button::before {
+                color: var(--foreground);
+                opacity: 1;
+            }
+        }
+
+        li {
+            button::before {
+                color: var(--foreground);
+                opacity: .5;
+            }
+
+        }
+    }
+}
