@@ -38,6 +38,7 @@ export type iPages = {
         facebook_link: string,
         linkedin_link: string,
         libro_de_reclamaciones_link: string,
+        celular: string,
         slider: {
             titulo: string,
             descripci_n: string,
@@ -82,7 +83,7 @@ export const portfolioConv = (data: iPages) => {
 }
 
 export const footerConv = (data: iPages) => {
-    const { subtitulo_1, instagram_link, facebook_link, linkedin_link, libro_de_reclamaciones_link, subtitulo_2, slider } = data.pie_de_pagina
+    const { subtitulo_1, instagram_link, facebook_link, linkedin_link, libro_de_reclamaciones_link, subtitulo_2, slider, celular } = data.pie_de_pagina
     const sliderC  = slider.map((e)=>{
         return {title: e.titulo, description: e.descripci_n, image: e.imagen, link: e.link}
     })
@@ -93,6 +94,7 @@ export const footerConv = (data: iPages) => {
         facebookL: facebook_link,
         linkedinL: linkedin_link,
         lvrLink: libro_de_reclamaciones_link,
-        slider:sliderC
+        slider:sliderC,
+        phone:celular
     } as React.ComponentProps<typeof Footer>
 }
