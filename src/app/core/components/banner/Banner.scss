@@ -30,10 +30,11 @@
     max-width: 100vw;
     overflow: hidden;
 
-    @media (max-width: $medium) {
-        max-height: 50vh;
-        grid-template-rows: repeat(4, 12.5vh);
-        grid-template-columns: repeat(4, 25vw);
+    @media (max-width: $medium) and (orientation: portrait) {
+        max-height: 100svh;
+        max-width: 200vw;
+        grid-template-rows: repeat(4, 25svh);
+        grid-template-columns: repeat(4, 50vw);
     }
 
     .buttons {
@@ -54,10 +55,18 @@
 
             &.r {
                 right: 10px;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    right: 5px;
+                }
             }
 
             &.l {
                 left: 10px;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    left: 5px;
+                }
             }
         }
 
@@ -79,7 +88,17 @@
         background-color: rgba(0, 0, 0, 0.8);
         margin: 0 25%;
         padding-top: 60px;
-        gap: 20px;
+
+        @media (max-width: $large) {
+            padding: 0;
+            justify-content: space-around;
+        }
+
+        @media (max-width: $medium) and (orientation: portrait) {
+            justify-content: center;
+            grid-column: 1 / 3;
+            margin: 0 20%;
+        }
 
         .header-top {
             display: flex;
@@ -106,8 +125,13 @@
         grid-row: 1 / 5;
         position: relative;
         display: flex;
-        justify-content: end;
         align-items: center;
+        justify-content: end;
+
+        @media (max-width: $medium) and (orientation: portrait) {
+            grid-row: 1 / 5;
+            left: -25%;
+        }
 
         &::after {
             z-index: 2;
@@ -118,19 +142,33 @@
             height: 200vh;
             right: 10vw;
             top: -39.3vh;
-            transform: rotate(65deg);
+            transform: rotate(62deg);
+
+            @media (max-width: $large) {
+                width: 10px;
+            }
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                width: 25px;
+                transform: rotate(50deg);
+                top: -35svh;
+            }
         }
 
         .imgCont {
-            min-width: 99vw;
+            min-width: 95vw;
             display: flex;
-            justify-content: center;
-            align-items: center;
 
             .curr {
-                aspect-ratio: 25/17;
+                aspect-ratio: 25/20;
                 position: relative;
                 max-height: none;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    aspect-ratio: 20 / 25;
+                    height: 100svh;
+                    clip-path: none;
+                }
 
             }
         }
@@ -142,12 +180,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         .curr {
             position: relative;
-            aspect-ratio: 25/17;
+            aspect-ratio: 25/20;
             width: 100%;
-            margin-bottom: 25%;
+            margin-bottom: 35%;
             filter: saturate(0);
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                aspect-ratio: 20 / 25;
+                margin-bottom: 50%;
+            }
         }
     }
 
@@ -156,10 +200,14 @@
         grid-row: 1 / 3;
         display: flex;
         align-items: center;
-        margin-left: 2%;
 
         .curr {
-            aspect-ratio: 25/17;
+            margin-bottom: 5%;
+            aspect-ratio: 25/20;
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                aspect-ratio: 20 / 25;
+            }
         }
     }
 
@@ -177,7 +225,11 @@
             align-items: center;
 
             .curr {
-                aspect-ratio: 25/17;
+                aspect-ratio: 25/20;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    aspect-ratio: 20 / 25;
+                }
 
             }
         }
@@ -188,10 +240,14 @@
         grid-row: 3 / 5;
         display: flex;
         align-items: center;
-        margin-left: 2%;
 
         .curr {
-            aspect-ratio: 25/17;
+            aspect-ratio: 25/20;
+            margin-top: 5%;
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                aspect-ratio: 20 / 25;
+            }
         }
     }
 
@@ -203,9 +259,14 @@
         align-items: center;
 
         .curr {
-            aspect-ratio: 25/17;
-            margin-top: 25%;
+            aspect-ratio: 25/20;
+            margin-top: 35%;
             filter: saturate(0);
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                aspect-ratio: 20 / 25;
+                margin-top: 50%;
+            }
         }
     }
 
@@ -223,10 +284,14 @@
             align-items: center;
 
             img {
-                aspect-ratio: 25/17;
+                aspect-ratio: 25/20;
                 position: relative;
                 height: 135%;
                 filter: saturate(0);
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    aspect-ratio: 20 / 25;
+                }
             }
         }
     }

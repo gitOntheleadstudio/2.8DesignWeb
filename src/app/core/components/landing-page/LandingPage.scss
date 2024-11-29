@@ -1,0 +1,51 @@
+@use '../../../styles/' as *;
+
+
+.lines {
+    position: absolute;
+    width: 100vw;
+    height: fit-content;
+    overflow: hidden;
+}
+.line {
+    &.l1 {
+        z-index: 5;
+        content: '';
+        position: relative;
+        background-color: var(--focus);
+        width: 31px;
+        height: 300vh;
+        left: 50vw;
+        top: -21vh;
+        transform: rotate(-62deg);
+
+        @media (max-width: $large) {
+            width: 10px;
+        }
+        @media (max-width: $medium) and (orientation: portrait){
+            transform: rotate(-55deg);
+            width: 10px;
+            top: -30vh;
+        }
+    }
+
+    &.l2 {
+        z-index: 5;
+        content: '';
+        position: absolute;
+        background-color: var(--focus);
+        width: 31px;
+        height: 280vh;
+        left: 50vw;
+        top: 92vh;
+        transform: rotate(62deg);
+
+        @media (max-width: $large) {
+            width: 10px;
+        }
+        @media (max-width: $medium) and (orientation: portrait){
+            top: 88vh;
+            transform: rotate(50deg);
+        }
+    }
+}

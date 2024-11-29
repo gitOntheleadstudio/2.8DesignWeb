@@ -1,0 +1,419 @@
+@use '../../../styles/' as *;
+
+.portfolio-box {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 25vw);
+    grid-template-rows: repeat(4, 25vh);
+    //gap: 1px;
+    grid-auto-rows: minmax(100px, auto);
+    max-height: 100vh;
+    max-width: 100vw;
+
+    div {
+        z-index: 2;
+    }
+
+    .videos {
+        grid-column: 1 / 4;
+        grid-row: 1 / 5;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        gap: 1vw;
+
+        video {
+            width: 16vw;
+            object-fit: cover;
+            height: 100%;
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                height: 50%;
+            }
+        }
+    }
+
+    .bkg {
+        position: absolute;
+        clip-path: polygon(33% 0, 100% 0, 100% 100%, 0 100%, 0 90%, 33% 52%);
+        width: 100%;
+        height: 100%;
+        filter: saturate(0);
+        z-index: 1;
+
+        @media (max-width: $medium) and (orientation: portrait) {
+            clip-path: polygon(33% 0, 100% 0, 100% 100%, 0 100%, 0 47%, 33% 35%);
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            content: '';
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            opacity: .8;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .header {
+        grid-column: 2 / 4;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+        padding-left: 10vw;
+
+        @media (max-width: $large) {
+            justify-content: start;
+        }
+
+    }
+
+    .subheader {
+        grid-column: 2 / 4;
+        grid-row: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: $medium) and (orientation: portrait) {
+            grid-row: 2;
+            grid-column: 1 / 5;
+            justify-content: end;
+        }
+
+        h1,
+        h2 {
+            width: 80%;
+            text-align: center;
+        }
+
+    }
+
+    .arrow {
+        font-size: 5rem;
+        z-index: 5;
+        justify-self: end;
+
+        &.left {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: 4;
+            grid-row: 3;
+        }
+
+        &.rigth {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: 4;
+            grid-row: 1;
+
+            @media (max-width: $medium) and (orientation: portrait) {
+                align-items: end;
+            }
+        }
+    }
+
+    .slider-box {
+        grid-column: 3 / 5;
+        grid-row: 1 / 3;
+        margin-top: 90px;
+        z-index: 5;
+
+        @media (max-width: $large) {
+            margin-top: 40px;
+        }
+
+        .slide-cont {
+            height: 50vh;
+            position: relative;
+
+            .slides {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 25vw);
+                grid-template-rows: repeat(2, 25vh);
+
+                .slide {
+                    object-fit: cover;
+                    display: flex;
+                    clip-path: polygon(50% 16%, 100% 50%, 50% 84%, 0 50%);
+                    aspect-ratio: 25/20;
+
+                    @media (max-width: $medium) and (orientation: portrait) {
+                        aspect-ratio: 20/25;
+                    }
+
+                    &.s0 {
+                        grid-column: 1 / 3;
+                        grid-row: 1;
+                        width: 45%;
+                        justify-self: center;
+                        clip-path: polygon(50% 0, 100% 35%, 50% 68%, 0 34%);
+
+                        @media (max-width: $medium) and (orientation: portrait) {
+                            clip-path: polygon(50% 32%, 100% 66%, 50% 100%, 0 65%);
+                            align-self: flex-end;
+                        }
+                    }
+
+                    &.s1 {
+                        grid-column: 1;
+                        grid-row: 1 / 3;
+                        width: 90%;
+                        align-self: center;
+                    }
+
+                    &.s2 {
+                        grid-column: 2;
+                        grid-row: 1 / 3;
+                        width: 90%;
+                        align-self: center;
+                        justify-self: end;
+                    }
+
+                    &.s3 {
+                        grid-column: 1 / 3;
+                        grid-row: 2;
+                        width: 45%;
+                        justify-self: center;
+                        clip-path: polygon(50% 0, 100% 35%, 50% 68%, 0 34%);
+                    }
+                }
+            }
+
+            .buttons {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 25vw);
+                grid-template-rows: repeat(2, 25vh);
+                position: absolute;
+                top: 0;
+
+                .button {
+                    width: 100%;
+                    height: 100%;
+                    // background-color: black;
+                    display: flex;
+
+                    &.b0 {
+                        grid-column: 1 / 3;
+                        grid-row: 1;
+                        width: 25%;
+                        justify-self: center;
+                    }
+
+                    &.b1 {
+                        grid-column: 1;
+                        grid-row: 1 / 3;
+                        height: 25%;
+                        align-self: center;
+                    }
+
+                    &.b2 {
+                        grid-column: 2;
+                        grid-row: 1 / 3;
+                        height: 25%;
+                        align-self: center;
+                    }
+
+                    &.b3 {
+                        grid-column: 1 / 3;
+                        grid-row: 2;
+                        width: 25%;
+                        justify-self: center;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .bf-container {
+        grid-column: 1 / 5;
+        grid-row: 3 / 5;
+        display: grid;
+        grid-template-columns: repeat(4, 25vw);
+        grid-template-rows: repeat(2, 25vh);
+        position: relative;
+        z-index: 1;
+
+        .bf-box {
+            position: relative;
+            width: 25%;
+            display: flex;
+            align-items: center;
+            height: fit-content;
+
+            .bf-desc {
+                position: absolute;
+                left: 35%;
+                top: 3.6vh;
+                z-index: 1;
+                background-color: black;
+                clip-path: polygon(50% 16%, 100% 50%, 50% 84%, 0 50%);
+                aspect-ratio: 25/20;
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    top: 2vh;
+                }
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                max-width: none;
+                clip-path: polygon(50% 16%, 100% 50%, 50% 84%, 0 50%);
+                aspect-ratio: 25/20;
+            }
+
+            &.bf0 {
+                position: relative;
+                grid-column: 1;
+                grid-row: 2;
+                width: 90%;
+                left: 20%;
+                bottom: 30%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    grid-column: 1 / 3;
+                    grid-row: 1 / 3;
+                    width: 85%;
+                    left: auto;
+                    align-self: end;
+                    bottom: 40%;
+                }
+            }
+
+            &.bf1 {
+                position: relative;
+                grid-column: 1 / 3;
+                grid-row: 1 / 3;
+                width: 40%;
+                height: fit-content;
+                left: 35%;
+                top: 10%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    grid-column: 2 / 4;
+                    grid-row: 1 / 3;
+                    width: 100%;
+                    left: auto;
+                }
+            }
+
+            &.bf2 {
+                position: relative;
+                grid-column: 2;
+                grid-row: 2;
+                width: 90%;
+                right: -10%;
+                bottom: 30%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    grid-column: 3 / 5;
+                    grid-row: 1 / 3;
+                    width: 85%;
+                    left: auto;
+                    align-self: flex-end;
+                    bottom: 40%;
+                }
+            }
+
+            &.bf3 {
+                position: relative;
+                grid-column: 3;
+                grid-row: 2;
+                width: 90%;
+                bottom: 30%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    display: none;
+                }
+            }
+
+            &.bf4 {
+                position: relative;
+                grid-column: 3 / 5;
+                grid-row: 1 / 3;
+                height: fit-content;
+                width: 40%;
+                left: 25%;
+                top: 10%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    display: none;
+                }
+            }
+
+            &.bf5 {
+                position: relative;
+                grid-column: 4;
+                grid-row: 2;
+                width: 90%;
+                left: -10%;
+                bottom: 30%;
+
+                @media (max-width: $medium) and (orientation: portrait) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.sliderPortfolio {
+    width: 100%;
+
+    .slick-arrow {
+        z-index: 11;
+
+        &::before {
+            color: var(--foreground);
+            font-size: 40px; //tamaño de los botones
+        }
+
+        &.slick-prev {
+            left: -45px;
+
+        }
+    }
+
+    .slick-dots {
+        z-index: 11;
+        bottom: 7px;
+
+        .slick-active {
+            button::before {
+                color: var(--foreground);
+                opacity: 1;
+            }
+        }
+
+        li {
+            button::before {
+                color: var(--foreground);
+                opacity: .5;
+            }
+
+        }
+    }
+}

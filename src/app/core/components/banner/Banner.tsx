@@ -17,11 +17,9 @@ export default function Banner(_: {
         className: "sliderBanner",
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
         dots: false,
         fade: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 4000,
         arrows: false,
         pauseOnHover: false
@@ -31,12 +29,12 @@ export default function Banner(_: {
             <div className="buttons">
                 <button className='b r' onClick={() => {
                     for (let i = 0; i < 6; i++) {
-                        slidersRef.current[i].slickNext()    
+                        slidersRef.current[i].slickNext()
                     }
                 }}><IoMdArrowDropright /></button>
                 <button className='b l' onClick={() => {
                     for (let i = 0; i < 6; i++) {
-                        slidersRef.current[i].slickPrev()    
+                        slidersRef.current[i].slickPrev()
                     }
                 }}><IoMdArrowDropleft /></button>
             </div>
@@ -50,54 +48,54 @@ export default function Banner(_: {
             <div className='main'>
                 <div className='imgCont'>
                     <Slider {...slideSettings} ref={slider => (slidersRef.current[0] = slider!)}>
-                        {slider.map((e) => {
-                            return <img className='curr' src={e} />
+                        {slider.map((e, i) => {
+                            return <img key={`img${-i}`} className='curr' src={e} />
                         })}
                     </Slider>
                 </div>
             </div>
             <div className='one'>
                 <Slider {...slideSettings} ref={slider => (slidersRef.current[1] = slider!)}>
-                    {slider.map((e) => {
-                        return <img className='curr' src={e} />
+                    {slider.map((e, i) => {
+                        return <img key={`img${-i}`} className='curr' src={e} />
                     })}
                 </Slider>
             </div>
             <div className='two'>
                 <Slider {...slideSettings} ref={slider => (slidersRef.current[2] = slider!)}>
-                    {slider.map((e) => {
-                        return <img className='curr' src={e} />
+                    {slider.map((e, i) => {
+                        return <img key={`img${-i}`} className='curr' src={e} />
                     })}
                 </Slider>
             </div>
             <div className='three'>
                 <div className='imgCont'>
                     <Slider {...slideSettings} ref={slider => (slidersRef.current[3] = slider!)}>
-                        {slider.map((e) => {
-                            return <img className='curr' src={e} />
+                        {slider.map((e, i) => {
+                            return <img key={`img${-i}`} className='curr' src={e} />
                         })}
                     </Slider>
                 </div>
             </div>
             <div className='four'>
                 <Slider {...slideSettings} ref={slider => (slidersRef.current[4] = slider!)}>
-                    {slider.map((e) => {
-                        return <img className='curr' src={e} />
+                    {slider.map((e, i) => {
+                        return <img key={`img${-i}`} className='curr' src={e} />
                     })}
                 </Slider>
             </div>
             <div className='five'>
                 <Slider {...slideSettings} ref={slider => (slidersRef.current[5] = slider!)}>
-                    {slider.map((e) => {
-                        return <img className='curr' src={e} />
+                    {slider.map((e, i) => {
+                        return <img key={`img${-i}`} className='curr' src={e} />
                     })}
                 </Slider>
             </div>
             <div className='six'>
                 <div className='imgCont'>
                     <Slider {...slideSettings} ref={slider => (slidersRef.current[6] = slider!)}>
-                        {slider.map((e) => {
-                            return <img className='curr' src={e} />
+                        {slider.map((e, i) => {
+                            return <img key={`img${-i}`} className='curr' src={e} />
                         })}
                     </Slider>
                 </div>

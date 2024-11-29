@@ -5,6 +5,7 @@ export default function Services(_: {
     description: string,
     slider: {
         name: string,
+        detail?: string,
         image: string
     }[]
 }) {
@@ -19,7 +20,15 @@ export default function Services(_: {
         autoplay: true,
         autoplaySpeed: 2500,
         arrows: false,
-        pauseOnHover: false
+        pauseOnHover: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+        ]
     };
     return (
         <div className='services'>
@@ -39,6 +48,7 @@ export default function Services(_: {
                                     <img src={e.image} alt="" />
                                     <div className="text">
                                         <h2>{e.name}</h2>
+                                        <p>{e.detail}</p>
                                     </div>
                                 </div>
                             )

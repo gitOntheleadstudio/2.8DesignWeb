@@ -3,69 +3,61 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Banner from '../banner/Banner';
 import Services from '../services/Services';
+import Portfolio from '../portfolio/Portfolio';
+import Footer from '../footer/Footer';
+import db from '../../firebase/Firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { ComponentProps, useEffect, useState } from 'react';
+import { bannerConv, footerConv, iPages, portfolioConv, servicesConv } from '../../Utils/Interfaces';
+import Utils from '../../../shared/Utils/Utils';
 
 export default function LandingPage() {
-  const banner = {
-    subheader: "Arquitectura, diseño y construcción",
-    slider:[
-      'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/911758/pexels-photo-911758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      'https://images.pexels.com/photos/1633970/pexels-photo-1633970.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1487154/pexels-photo-1487154.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/52062/pexels-photo-52062.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-    ]
+  const qs = collection(db, "services")
+  const qp = collection(db, "pages")
+  const [loaded, setLoaded] = useState(false)
+  const [banner, setBanner] = useState<ComponentProps<typeof Banner>>()
+  const [services, setServices] = useState<ComponentProps<typeof Services>>()
+  const [portfolio, setPortfolio] = useState<ComponentProps<typeof Portfolio>>()
+  const [footer, setFooter] = useState<ComponentProps<typeof Footer>>()
+
+  const fetchData = async () => {
+    let pages = await getDocs(qp).then(async (response) => {
+      return response.docs[0].data() as iPages
+    })
+
+    let services = await getDocs(qs).then(async (response) => {
+      return await Promise.all(response.docs.map(async (service) => {
+        let serviceData = service.data()
+        let projects = (await getDocs((collection(db, "services", service.id, "proyectos")))).docs.map((project) => project.data())
+        serviceData.proyectos = projects
+        return serviceData
+      }))
+    })
+
+    pages.portfolio = services as any
+    return pages
+    
   }
-  const services = {
-    headline: 'Nosotros',
-    description: 'Somos un estudio de arquitectura dedicado al desarrollo de: Planeamiento urbano, arquitectura, diseño de interior, construcción y acabados en general en todas las especialidades.',
-    slider: [
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      },
-      {
-        name: 'Remodelaciones y ampliaciones',
-        image: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0'
-      }
-    ]
-  }
+
+  useEffect(() => {
+    fetchData().then((data) => {
+      setBanner(bannerConv(data))
+      setServices(servicesConv(data))
+      setPortfolio(portfolioConv(data))
+      setFooter(footerConv(data))
+    }).then(() => setLoaded(true))
+  }, [])
+
   return (
     <div>
-      <Banner {...banner}></Banner>
-      <Services {...services}></Services>
+      <div className="lines">
+        <div className='line l1'></div>
+        <div className='line l2'></div>
+      </div>
+      {Utils.asyncComponent(Banner, banner, loaded)}
+      {Utils.asyncComponent(Services, services, loaded)}
+      {Utils.asyncComponent(Portfolio, portfolio, loaded)}
+      {Utils.asyncComponent(Footer, footer, loaded)}
     </div>
   )
 }
