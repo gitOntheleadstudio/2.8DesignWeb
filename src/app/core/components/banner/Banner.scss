@@ -87,7 +87,7 @@
         align-items: center;
         background-color: rgba(0, 0, 0, 0.8);
         margin: 0 25%;
-        padding-top: 60px;
+        padding-top: 10px;
 
         @media (max-width: $large) {
             padding: 0;
@@ -105,13 +105,14 @@
             gap: 5px;
 
             h1 {
-                font-size: 6.5rem;
+                font-size: 8rem;
             }
 
             h2 {
-                line-height: 1.5rem;
+                line-height: 1.8rem;
                 text-align: start;
                 align-self: center;
+                font-size: 2.5rem;
             }
         }
 

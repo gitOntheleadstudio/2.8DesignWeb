@@ -19,7 +19,7 @@ export default function Banner(_: {
         speed: 500,
         dots: false,
         fade: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 4000,
         arrows: false,
         pauseOnHover: false
@@ -41,7 +41,7 @@ export default function Banner(_: {
             <div className='header'>
                 <div className="header-top">
                     <h1 className='text-focus'>2.8</h1>
-                    <h2 className='text-focus'>DE<br />SI<br />NG</h2>
+                    <h2 className='text-focus'>DE<br />S&<br />NG</h2>
                 </div>
                 <h2>{subheader}</h2>
             </div>

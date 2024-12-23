@@ -59,6 +59,203 @@ const tValues = {
     },
 
     portfolio: {
+        proyects: [
+            {
+                projectName: 'Remodelación Curacao S.A.',
+                place: 'San Borja',
+                projectImg: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                bf: [
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: false
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                ],
+                videos: [
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4',
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4'
+                ],
+                servicios: [
+                    'Estructuras Metálicas',
+                    'Instalaciones Sanitarias',
+                    'Instalaciones Eléctricas',
+                    'Sistema contra incendio',
+                    'Señalética y seguridad',
+                    'Albañilería',
+                    'Vidrios',
+                    'Melamina',
+                    'Planimetría + 3D',
+                    'Supervisión de obra',
+                    'Pintura'
+                ]
+            },
+            {
+                projectName: 'Remodelación Curacao S.A.1',
+                place: 'San Borja',
+                projectImg: 'https://images.pexels.com/photos/911758/pexels-photo-911758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+                bf: [
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: false
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                ],
+                videos: [
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4',
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4'
+                ],
+                servicios: [
+                    'Estructuras Metálicas',
+                    'Instalaciones Sanitarias',
+                    'Instalaciones Eléctricas',
+                    'Sistema contra incendio',
+                    'Señalética y seguridad',
+                    'Albañilería',
+                    'Vidrios',
+                    'Melamina',
+                    'Planimetría + 3D',
+                    'Supervisión de obra',
+                    'Pintura'
+                ]
+            },
+            {
+                projectName: 'Remodelación Curacao S.A.',
+                place: 'San Borja',
+                projectImg: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                bf: [
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: false
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                ],
+                videos: [
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4',
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4'
+                ],
+                servicios: [
+                    'Estructuras Metálicas',
+                    'Instalaciones Sanitarias',
+                    'Instalaciones Eléctricas',
+                    'Sistema contra incendio',
+                    'Señalética y seguridad',
+                    'Albañilería',
+                    'Vidrios',
+                    'Melamina',
+                    'Planimetría + 3D',
+                    'Supervisión de obra',
+                    'Pintura'
+                ]
+            },
+            {
+                projectName: 'Remodelación Curacao S.A.2',
+                place: 'San Borja',
+                projectImg: 'https://images.pexels.com/photos/911758/pexels-photo-911758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+                bf: [
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: false
+                    },
+                    {
+                        img: 'https://lh3.googleusercontent.com/d/1NM0jkNeA8N5MiMMUjO7lnP28ntfwlN_h=w1000?authuser=0',
+                        before: true
+                    },
+                ],
+                videos: [
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4',
+                    'https://videos.pexels.com/video-files/2828876/2828876-hd_1080_1920_24fps.mp4'
+                ],
+                servicios: [
+                    'Estructuras Metálicas',
+                    'Instalaciones Sanitarias',
+                    'Instalaciones Eléctricas',
+                    'Sistema contra incendio',
+                    'Señalética y seguridad',
+                    'Albañilería',
+                    'Vidrios',
+                    'Melamina',
+                    'Planimetría + 3D',
+                    'Supervisión de obra',
+                    'Pintura'
+                ]
+            }
+        ]
+    },
+
+    portfolio1: {
         services: [
             {
                 name: 'Carpintería Metalica',

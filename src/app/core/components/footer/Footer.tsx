@@ -1,8 +1,9 @@
 import Slider from 'react-slick'
 import './Footer.scss'
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaPhoneAlt, FaUserTie } from 'react-icons/fa';
 export default function Footer(_: {
     subtitle1: string,
+    personName: string,
     phone: string,
     instagramL: string,
     facebookL: string,
@@ -17,14 +18,14 @@ export default function Footer(_: {
     }[]
 
 }) {
-    const { subtitle1, facebookL, instagramL, linkedinL, lvrLink, phone, slider, subtitle2 } = _
+    const { subtitle1, facebookL, instagramL, linkedinL, lvrLink, phone, slider, subtitle2,personName } = _
     const slideSettings = {
         className: "sliderFooter",
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         dots: false,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 5000,
         pauseOnHover: false,
         autoplay: true,
     };
@@ -37,20 +38,21 @@ export default function Footer(_: {
             </div>
             <div className="contact">
                 <h2>{subtitle1}</h2>
-                <p>{phone}</p>
+                <p><FaPhoneAlt />{phone}</p>
+                <p><FaUserTie />{personName}</p>
                 <div className="social">
-                    {instagramL != "" ? <a href="#"><FaInstagram /></a> : ""}
-                    {facebookL != "" ? <a href="#"><FaFacebook /></a> : ""}
-                    {linkedinL != "" ? <a href="#"><FaLinkedin /></a> : ""}
+                    {instagramL != "" ? <a href={instagramL}><FaInstagram /></a> : ""}
+                    {facebookL != "" ? <a href={facebookL}><FaFacebook /></a> : ""}
+                    {linkedinL != "" ? <a href={linkedinL}><FaLinkedin /></a> : ""}
                 </div>
-                <a href={lvrLink}><img src="/lrv.png" alt="libro de reclamaciones" /></a>
+                <a href={lvrLink}><img src='./lrv.png' alt="libro de reclamaciones" /></a>
             </div>
             <div className="news">
                 <h2>{subtitle2}</h2>
                 <Slider {...slideSettings}>
                     {slider.map((e, i) => {
                         return (
-                            <a key={`card-${i}`} className="card" href='#'>
+                            <a key={`card-${i}`} className="card" href={e.link}>
                                 <img src={e.image} alt="news image" />
                                 <div className="description">
                                     <h3>{e.title}</h3>

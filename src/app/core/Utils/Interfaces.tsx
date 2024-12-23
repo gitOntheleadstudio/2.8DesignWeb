@@ -16,11 +16,9 @@ export type iPages = {
             imagen: string,
             detalle?: string
         }[]
-    }
+    },
     portfolio: {
-        nombre_servicio: string,
-        detalle: string,
-        proyectos: {
+        proyects: {
             nombre: string,
             imagen_principal: string,
             ubicaci_n: string,
@@ -28,12 +26,15 @@ export type iPages = {
             imagenes: {
                 antes_despues: "Antes" | "Despues",
                 imagen: string
-            }[]
+            }[],
+            servicios: string[]
         }[]
-    }[]
+    },
+
     pie_de_pagina: {
         subtitulo_1: string,
         subtitulo_2: string,
+        nombre_persona: string,
         instagram_link: string,
         facebook_link: string,
         linkedin_link: string,
@@ -69,32 +70,33 @@ export const servicesConv = (data: iPages) => {
 }
 
 export const portfolioConv = (data: iPages) => {
-    const portfolio = data.portfolio
-    let servicios = portfolio.map((e) => {
-        let proyectos = e.proyectos.map((el) => {
-            let bf = el.imagenes.map((ele) => { return { img: ele.imagen, before: ele.antes_despues === "Antes" ? true : false } })
-            return { projectName: el.nombre, place: el.ubicaci_n, projectImg: el.imagen_principal, videos: el.videos, bf: bf }
+    const portfolio = data.portfolio.proyects
+    let portfolioRes = portfolio.map((e) => {
+        const { imagen_principal, imagenes, nombre, ubicaci_n, videos, servicios } = e
+        const bf = imagenes.map((e) => {
+            return { img: e.imagen, before: e.antes_despues == 'Antes' ? true : false }
         })
-        return { name: e.nombre_servicio, detail: e.detalle, portfolio: proyectos }
+        return { projectName: nombre, place: ubicaci_n, projectImg: imagen_principal, bf, videos, servicios }
     })
     return {
-        services: servicios
+        proyects: portfolioRes
     } as React.ComponentProps<typeof Portfolio>
 }
 
 export const footerConv = (data: iPages) => {
-    const { subtitulo_1, instagram_link, facebook_link, linkedin_link, libro_de_reclamaciones_link, subtitulo_2, slider, celular } = data.pie_de_pagina
-    const sliderC  = slider.map((e)=>{
-        return {title: e.titulo, description: e.descripci_n, image: e.imagen, link: e.link}
+    const { subtitulo_1, instagram_link, facebook_link, linkedin_link, libro_de_reclamaciones_link, subtitulo_2, slider, celular, nombre_persona } = data.pie_de_pagina
+    const sliderC = slider.map((e) => {
+        return { title: e.titulo, description: e.descripci_n, image: e.imagen, link: e.link }
     })
     return {
         subtitle1: subtitulo_1,
         subtitle2: subtitulo_2,
+        personName: nombre_persona,
         instagramL: instagram_link,
         facebookL: facebook_link,
         linkedinL: linkedin_link,
         lvrLink: libro_de_reclamaciones_link,
-        slider:sliderC,
-        phone:celular
+        slider: sliderC,
+        phone: celular
     } as React.ComponentProps<typeof Footer>
 }

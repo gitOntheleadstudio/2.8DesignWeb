@@ -37,9 +37,13 @@
         top: 5vh;
         width: 40vw;
         text-align: center;
-        padding: 0 5%;
+        padding: 0 2%;
         @media (max-width: $medium) and (orientation: portrait) {
             width: 60vw;
+        }
+
+        p {
+            font-size: 1.2rem;
         }
     }
 }

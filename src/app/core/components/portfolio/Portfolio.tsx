@@ -1,57 +1,36 @@
 import Slider from 'react-slick';
 import './Portfolio.scss'
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 export default function Portfolio(_: {
-  services: {
-    name: string,
-    detail: string,
-    portfolio: {
-      projectName: string,
-      place: string,
-      projectImg: string,
-      bf: {
-        img: string,
-        before: boolean
-      }[],
-      videos: string[]
-    }[]
+  proyects: {
+    projectName: string,
+    place: string,
+    projectImg: string,
+    bf: {
+      img: string,
+      before: boolean
+    }[],
+    videos: string[],
+    servicios: string[]
   }[]
 }) {
-  const services = _.services
-  const [servicePivot, setServicePivot] = useState(0)
   const [projectPivot, setProjectPivot] = useState(0)
-  const project = services[servicePivot].portfolio[projectPivot]
-  const service = services[servicePivot]
+  const project = _.proyects[projectPivot]
   useEffect(() => {
     //arrayComplete(service.portfolio, 4)
   }, [])
-
-  const onClickHandler = (num: number) => {
-    setProjectPivot(0)
-    if (num === services.length) return 0
-    else if (num === -1) return services.length - 1
-    else return num
-  }
-  const arrayComplete = (array: Array<any>, size: number) => {
-    let res = []
-    for (let i = 0; i < array.length % size; i++)
-      array.push(array[i])
-    for (let i = 0; i < array.length; i += size)
-      res.push(array.slice(i, i + size));
-    return res
-  }
   const slideSettings = {
     className: "sliderPortfolio",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     dots: false,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 5000,
     pauseOnHover: false,
     autoplay: true,
     fade: true,
-    arrows: false
+    arrows: false,
+    afterChange: (current: number) => setProjectPivot(current)
   };
   return (
     <div className="portfolio-box">
@@ -67,33 +46,24 @@ export default function Portfolio(_: {
         </video>
       </div>
       <div className="header">
-        <h2>{project.projectName}</h2>
-        <p className='text-focus'>{project.place}</p>
+        <h2 className='text-focus'>Servicios Prestados</h2>
+        <div className="services">
+          {project.servicios.map((e, i) => {
+            return (
+              <p key={`service-${i}`}>- {e}</p>
+            )
+          })}
+        </div>
       </div>
 
       <div className="slider-box">
         <Slider {...slideSettings} >
           {
-            arrayComplete(service.portfolio, 4).map((e, i) => {
+            _.proyects.map((e, i) => {
               return (
-                <div key={`d${i}`} className='slide-cont'>
-                  <div key={`s-${i}`} className='slides'>
-                    {
-                      e.map((f, j) => {
-                        return (
-                          <img key={`img-${j}`} className={`slide s${j}`} src={f.projectImg} alt="project image" />
-                        )
-                      })
-                    }
-                  </div>
-                  <div key={`b-${i}`} className='buttons' >
-                    {
-                      e.map((_, k) => {
-                        return (
-                          <button key={`b-${k}`} className={`button b${k}`} onClick={() => setProjectPivot((i * 4) + k)} />
-                        )
-                      })
-                    }
+                <div className="slide-cont" key={`slide-${i}`}>
+                  <div className="slide">
+                    <img src={e.projectImg} alt="bkg image" />
                   </div>
                 </div>
               )
@@ -101,15 +71,9 @@ export default function Portfolio(_: {
           }
         </Slider>
       </div>
-      <button className="arrow left">
-        <FaArrowLeft onClick={() => { setServicePivot(onClickHandler(servicePivot - 1)) }} />
-      </button>
-      <button className="arrow rigth">
-        <FaArrowRight onClick={() => { setServicePivot(onClickHandler(servicePivot + 1)) }} />
-      </button>
       <div className="subheader">
-        <h1>{service.name}</h1>
-        <h2>{service.detail}</h2>
+        <h1>{project.projectName}</h1>
+        <h2 className='text-focus'>{project.place}</h2>
       </div>
       <div className="bf-container">
         {[...Array(6)].map((_, i) => {

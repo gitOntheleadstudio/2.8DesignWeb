@@ -25,16 +25,17 @@ export default function LandingPage() {
       return response.docs[0].data() as iPages
     })
 
-    let services = await getDocs(qs).then(async (response) => {
-      return await Promise.all(response.docs.map(async (service) => {
-        let serviceData = service.data()
-        let projects = (await getDocs((collection(db, "services", service.id, "proyectos")))).docs.map((project) => project.data())
-        serviceData.proyectos = projects
-        return serviceData
-      }))
-    })
-
-    pages.portfolio = services as any
+    let proyects = (await getDocs(qs)).docs.map((e) => {return e.data()})
+    // let services = await getDocs(qs).then(async (response) => {
+    //   return await Promise.all(response.docs.map(async (service) => {
+    //     let serviceData = service.data()
+    //     let projects = (await getDocs((collection(db, "services", service.id, "proyectos")))).docs.map((project) => project.data())
+    //     //let projects = ((await getDocs(collection(db, "services"))).docs.map((e)=>{return e.data()}))
+    //     serviceData.proyectos = projects
+    //     return serviceData
+    //   }))
+    // })
+    pages.portfolio = {proyects} as any
     return pages
     
   }
